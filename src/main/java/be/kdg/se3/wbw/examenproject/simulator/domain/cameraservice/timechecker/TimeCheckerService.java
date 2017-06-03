@@ -38,4 +38,11 @@ public interface TimeCheckerService {
      * @param interval
      */
     void serRushHourTimeBlockInterval(int interval);
+
+    /**
+     * This methods should be used to refresh the number of milliseconds between the generation of two messages.
+     * This method should check whether the current time is in a rush hour block and return the corresponding interval
+     * @return int value of the new interval (number of milliseconds between two generated messages)
+     */
+    int refreshInterval();
 }
