@@ -10,7 +10,7 @@ import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
  */
 public interface CameraMessageSubscriber {
     /**
-     * This method will be called by the Publisher when he publishes a new CameraMessage.
+     * This method will be called by the CameraMessagePublisher when he publishes a new CameraMessage.
      * This will trigger the CameraMessageSubscriber to perform the necessary actions.
      * @param message the CameraMessage that has to be handled by this CameraMessageSubscriber
      */
