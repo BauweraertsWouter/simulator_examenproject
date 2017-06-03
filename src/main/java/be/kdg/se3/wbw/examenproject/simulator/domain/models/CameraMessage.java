@@ -1,30 +1,32 @@
 package be.kdg.se3.wbw.examenproject.simulator.domain.models;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class CameraMessage {
-    private final LocalDateTime timestamp;
+    private final Date timestamp;
     private final int cameraId;
     private final String licensePlate;
 
-    private CameraMessage(LocalDateTime timestamp, int cameraId, String licensePlate) {
+    private CameraMessage(Date timestamp, int cameraId, String licensePlate) {
         this.timestamp = timestamp;
         this.cameraId = cameraId;
         this.licensePlate = licensePlate;
     }
 
-    public LocalDateTime getTimestamp() { return timestamp; }
+    public Date getTimestamp() { return timestamp; }
 
     public int getCameraId() { return cameraId; }
 
     public String getLicensePlate() { return licensePlate; }
 
     public static class CameraMessageBuilder{
-        private LocalDateTime timestamp = LocalDateTime.now();
+        private Date timestamp = Date.from(Instant.now());
         private int cameraId = 0;
         private String licensePlate = "1-ABC-123";
 
-        public CameraMessageBuilder withTimestamp(LocalDateTime timestamp) {
+        public CameraMessageBuilder withTimestamp(Date timestamp) {
             this.timestamp = timestamp;
             return this;
         }

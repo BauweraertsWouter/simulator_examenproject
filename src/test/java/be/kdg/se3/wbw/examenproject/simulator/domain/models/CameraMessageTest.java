@@ -3,6 +3,8 @@ package be.kdg.se3.wbw.examenproject.simulator.domain.models;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +14,7 @@ public class CameraMessageTest {
 
     @Test
     public void createCameraMessageWithBuilderWithgivenTimestamp_getTimestamp_equalsExpectedTimestamp() throws Exception {
-        LocalDateTime timestamp = LocalDateTime.now();
+        Date timestamp = getTimestamp(2017,6,3,8,15,23);
         message = new CameraMessage.CameraMessageBuilder()
                 .withTimestamp(timestamp)
                 .build();
@@ -35,5 +37,12 @@ public class CameraMessageTest {
                 .withCameraId(id)
                 .build();
         assertThat(message.getCameraId()).isEqualTo(id);
+    }
+
+    private Date getTimestamp(int year, int month, int day, int hour, int minute, int second) {
+        return Date.from(
+                LocalDateTime.of(year, month, day, hour, minute, second)
+                        .atZone(ZoneId.systemDefault())
+                        .toInstant());
     }
 }
