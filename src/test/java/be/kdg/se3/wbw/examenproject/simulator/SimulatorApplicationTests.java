@@ -24,4 +24,14 @@ public class SimulatorApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+    public void startGenerating(){
+	    cameraServiceGenerator.startCameraService(true);
+    }
+
+    @Test
+    public void startReading(){
+        cameraServiceReader.startCameraService(true);
+    }
+
 }
