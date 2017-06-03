@@ -3,7 +3,6 @@ package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.timechecker;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.RushHour;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;

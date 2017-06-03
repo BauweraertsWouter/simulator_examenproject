@@ -3,8 +3,8 @@ package be.kdg.se3.wbw.examenproject.simulator.domain.models;
 import java.time.LocalTime;
 
 public class RushHour {
-    private LocalTime begin;
-    private LocalTime end;
+    private final LocalTime begin;
+    private final LocalTime end;
 
     public RushHour(LocalTime begin, LocalTime end) {
         this.begin = begin;

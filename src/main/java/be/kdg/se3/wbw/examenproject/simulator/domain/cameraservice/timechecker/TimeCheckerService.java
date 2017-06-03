@@ -14,28 +14,28 @@ import java.util.Date;
 public interface TimeCheckerService {
     /**
      * This method can be used to add a rush hour time block to the collection of rush hours
-     * @param rushHour
+     * @param rushHour instance of RushHour to add
      */
     void addRushHour(RushHour rushHour);
 
     /**
-     * This method will check wheter a given timestamp is in a rush hour timeblock. The method returns true if the
+     * This method will check whether a given timestamp is in a rush hour time block. The method returns true if the
      * timestamp is part of a rush hour block and false if not.
-     * @param timestamp
+     * @param timestamp timestamp to check
      */
     boolean checkRushHour(Date timestamp);
 
     /**
      * Use this method to set the number of milliseconds between the generation of two CameraMessages in a regular
      * time block
-     * @param interval
+     * @param interval number of milliseconds between generation
      */
     void setRegularTimeBlockInterval(int interval);
 
     /**
      * Use this method to set the number of milliseconds between the generation of two CameraMessages in a rush hour
      * time block
-     * @param interval
+     * @param interval number of milliseconds between generation
      */
     void serRushHourTimeBlockInterval(int interval);
 

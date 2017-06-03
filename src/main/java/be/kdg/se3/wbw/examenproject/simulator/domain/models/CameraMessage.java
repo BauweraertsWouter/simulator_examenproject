@@ -1,7 +1,6 @@
 package be.kdg.se3.wbw.examenproject.simulator.domain.models;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class CameraMessage {

@@ -13,7 +13,7 @@ public class CameraMessageTest {
     private CameraMessage message;
 
     @Test
-    public void createCameraMessageWithBuilderWithgivenTimestamp_getTimestamp_equalsExpectedTimestamp() throws Exception {
+    public void createCameraMessageWithBuilderWithGivenTimestamp_getTimestamp_equalsExpectedTimestamp() throws Exception {
         Date timestamp = getTimestamp(2017,6,3,8,15,23);
         message = new CameraMessage.CameraMessageBuilder()
                 .withTimestamp(timestamp)
@@ -22,7 +22,7 @@ public class CameraMessageTest {
     }
 
     @Test
-    public void createCameraMessageWithBuilderWithGivenLicenseplate_getLicenseplate_equalsExpectedLicenseplate() throws Exception {
+    public void createCameraMessageWithBuilderWithGivenLicensePlate_getLicensePlate_equalsExpectedLicensePlate() throws Exception {
         String plate = "1-RJF-728";
         message = new CameraMessage.CameraMessageBuilder()
                 .withLicensePlate(plate)
