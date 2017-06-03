@@ -1,4 +1,4 @@
-package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.timechecker;
+package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.generator.timechecker;
 
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.RushHour;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Component
 public class TimeCheckerServiceImpl implements TimeCheckerService {
-    List<RushHour> rushHours = new ArrayList<>();
+    private List<RushHour> rushHours = new ArrayList<>();
     private int rushHourInterval=1000;
     private int regularInterval=3000;
 

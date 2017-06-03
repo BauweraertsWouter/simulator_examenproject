@@ -1,13 +1,15 @@
-package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice;
+package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.generator;
 
 import be.kdg.se3.wbw.examenproject.simulator.adapters.api.CameraMessageQueueService;
 import be.kdg.se3.wbw.examenproject.simulator.adapters.api.CameraMessageReceiver;
+import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.CameraService;
 import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.mapper.CameraMessageMapper;
-import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.timechecker.TimeCheckerService;
+import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.generator.timechecker.TimeCheckerService;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessageDto;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.RushHour;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -26,6 +28,7 @@ public class CameraServiceGeneratorImpl implements CameraService {
 
     private int interval = 100;
 
+    @Autowired
     public CameraServiceGeneratorImpl(TimeCheckerService timeCheckerService,
                                       CameraMessageReceiver cameraMessageReceiver,
                                       CameraMessageMapper cameraMessageMapper,
@@ -35,9 +38,6 @@ public class CameraServiceGeneratorImpl implements CameraService {
         this.cameraMessageMapper = cameraMessageMapper;
         this.cameraMessageQueueService = cameraMessageQueueService;
     }
-
-    @Autowired
-
 
     @Override
     public void startCameraService(boolean repeat) {

@@ -1,4 +1,4 @@
-package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.timechecker;
+package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.generator.timechecker;
 
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.RushHour;
 
