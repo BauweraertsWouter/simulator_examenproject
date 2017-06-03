@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/simulator_examenproject.iml" filepath="$PROJECT_DIR$/simulator_examenproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simulator_examenproject_main.iml" filepath="$PROJECT_DIR$/.idea/modules/simulator_examenproject_main.iml" group="simulator_examenproject" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simulator_examenproject_test.iml" filepath="$PROJECT_DIR$/.idea/modules/simulator_examenproject_test.iml" group="simulator_examenproject" />
+    </modules>
+  </component>
+</project>
