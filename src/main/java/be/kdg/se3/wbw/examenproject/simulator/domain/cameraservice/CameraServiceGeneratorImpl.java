@@ -6,13 +6,16 @@ import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.mapper.Camera
 import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.timechecker.TimeCheckerService;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessageDto;
+import be.kdg.se3.wbw.examenproject.simulator.domain.models.RushHour;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 /**
  * @author Wouter Bauweraerts
  * @version 1.0
- * Implementation of the CameraService. This implementation will generate random CameraMessages.
+ *          Implementation of the CameraService. This implementation will generate random CameraMessages.
  */
 @Component
 public class CameraServiceGeneratorImpl implements CameraService {
@@ -38,16 +41,15 @@ public class CameraServiceGeneratorImpl implements CameraService {
 
     @Override
     public void startCameraService(boolean repeat) {
-        setupTimeCheckerService();
-        do{
-            try{
+        do {
+            try {
                 cameraMessageReceiver.getCameraMessage();
                 Thread.sleep(interval);
                 interval = timeCheckerService.refreshInterval();
-            }catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }while (repeat);
+        } while (repeat);
     }
 
     @Override
@@ -56,7 +58,10 @@ public class CameraServiceGeneratorImpl implements CameraService {
         cameraMessageQueueService.publish(messageDto);
     }
 
-    private void setupTimeCheckerService() {
-        // add some RushHours
+    public void setupTimeCheckerService(int regularInterval, int rushHourInterval, RushHour... rushHours) {
+        timeCheckerService.setRegularTimeBlockInterval(regularInterval);
+        timeCheckerService.serRushHourTimeBlockInterval(rushHourInterval);
+        Arrays.stream(rushHours)
+                .forEach(r -> timeCheckerService.addRushHour(r));
     }
 }
