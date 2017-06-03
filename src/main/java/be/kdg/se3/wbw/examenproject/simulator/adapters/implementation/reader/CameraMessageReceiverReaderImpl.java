@@ -3,7 +3,9 @@ package be.kdg.se3.wbw.examenproject.simulator.adapters.implementation.reader;
 import be.kdg.se3.wbw.examenproject.simulator.adapters.api.CameraMessageReceiver;
 import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.mapper.CameraMessageMapper;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
+import be.kdg.se3.wbw.examenproject.simulator.exceptions.FailedMapperException;
 import be.kdg.se3.wbw.examenproject.simulator.listener.CameraMessageSubscriber;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 @Component
 public class CameraMessageReceiverReaderImpl implements CameraMessageReceiver {
+    private static final Logger logger = Logger.getLogger(CameraMessageReceiverReaderImpl.class);
+
     private String source;
     private List<CameraMessageSubscriber> subscribers;
     private CameraMessageMapper mapper;
@@ -37,7 +41,9 @@ public class CameraMessageReceiverReaderImpl implements CameraMessageReceiver {
                 subscribers.forEach((s)->s.pushCameraMessage(msg));
             }
         } catch (IOException e) {
-            //do some shit
+            logger.warn("Something went wrong while reading from file. Reading stopped");
+        } catch (FailedMapperException e){
+            logger.warn(e.getMessage());
         }
     }
 

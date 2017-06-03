@@ -29,7 +29,7 @@ public class SimulatorApplicationTests {
 //    public void startGenerating(){
 //	    cameraServiceGenerator.startCameraService(true);
 //    }
-//
+
     @Test
     public void startReading(){
         ((CameraServiceReaderImpl)cameraServiceReader).setSourceFile("default.csv");

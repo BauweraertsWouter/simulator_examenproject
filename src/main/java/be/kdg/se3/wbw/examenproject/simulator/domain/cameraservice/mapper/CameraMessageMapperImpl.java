@@ -2,15 +2,20 @@ package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.mapper;
 
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessageDto;
+import be.kdg.se3.wbw.examenproject.simulator.exceptions.FailedMapperException;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.IllegalFormatException;
 
 @Component
 public class CameraMessageMapperImpl implements CameraMessageMapper {
+    private final static Logger logger = Logger.getLogger(CameraMessageMapperImpl.class);
+
     @Override
     public CameraMessageDto mapToDto(CameraMessage message) {
         return new CameraMessageDto.CameraMessageDtoBuilder()
@@ -38,7 +43,8 @@ public class CameraMessageMapperImpl implements CameraMessageMapper {
                     .withLicensePlate(licensePlate)
                     .build();
         }catch (Exception e){
-            //Do some shit
+            logger.warn("Something went wrong converting from CSV to CameraMessage");
+            throw new FailedMapperException("Failed to map CSV to CameraMessage. Illegal state detected");
         }
         return cameraMessage;
     }

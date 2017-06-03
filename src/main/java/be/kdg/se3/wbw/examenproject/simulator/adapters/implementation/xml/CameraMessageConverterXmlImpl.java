@@ -3,6 +3,7 @@ package be.kdg.se3.wbw.examenproject.simulator.adapters.implementation.xml;
 import be.kdg.se3.wbw.examenproject.simulator.adapters.api.CameraMessageConverter;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessageDto;
+import org.apache.log4j.Logger;
 import org.exolab.castor.xml.Marshaller;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import java.io.Writer;
 
 @Component
 public class CameraMessageConverterXmlImpl implements CameraMessageConverter {
+    private static final Logger logger = Logger.getLogger(CameraMessageConverterXmlImpl.class);
     @Override
     public String convertMessage(CameraMessageDto message) {
         String out = "";
@@ -19,7 +21,7 @@ public class CameraMessageConverterXmlImpl implements CameraMessageConverter {
             Marshaller.marshal(message, writer);
             out = writer.toString();
         }catch (Exception e){
-            // do some shit
+            logger.warn("Something went wrong while converting a CameraMessageDto to XML");
         }
         return out;
     }
