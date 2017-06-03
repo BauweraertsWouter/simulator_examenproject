@@ -1,4 +1,4 @@
-package be.kdg.se3.wbw.examenproject.simulator.adapters.implementation;
+package be.kdg.se3.wbw.examenproject.simulator.adapters.implementation.generator;
 
 import be.kdg.se3.wbw.examenproject.simulator.adapters.api.CameraMessageReceiver;
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
