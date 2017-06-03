@@ -1,6 +1,6 @@
 package be.kdg.se3.wbw.examenproject.simulator.adapters.api;
 
-import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
+import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessageDto;
 
 /**
  * @author Wouter Bauweraerts
@@ -13,5 +13,5 @@ public interface CameraMessageConverter {
      * @param message CameraMessage that has to be converted to a String representation
      * @return the String that will be published on the queue
      */
-    String convertMessage(CameraMessage message);
+    String convertMessage(CameraMessageDto message);
 }
