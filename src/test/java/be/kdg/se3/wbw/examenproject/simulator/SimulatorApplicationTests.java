@@ -1,6 +1,7 @@
 package be.kdg.se3.wbw.examenproject.simulator;
 
 import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.CameraService;
+import be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice.reader.CameraServiceReaderImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,10 @@ public class SimulatorApplicationTests {
 //	    cameraServiceGenerator.startCameraService(true);
 //    }
 //
-//    @Test
-//    public void startReading(){
-//        cameraServiceReader.startCameraService(true);
-//    }
+    @Test
+    public void startReading(){
+        ((CameraServiceReaderImpl)cameraServiceReader).setSourceFile("default.csv");
+        cameraServiceReader.startCameraService(true);
+    }
 
 }

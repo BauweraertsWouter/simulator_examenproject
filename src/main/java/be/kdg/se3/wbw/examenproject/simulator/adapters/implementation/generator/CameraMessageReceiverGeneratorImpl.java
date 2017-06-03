@@ -4,12 +4,14 @@ import be.kdg.se3.wbw.examenproject.simulator.adapters.api.CameraMessageReceiver
 import be.kdg.se3.wbw.examenproject.simulator.domain.models.CameraMessage;
 import be.kdg.se3.wbw.examenproject.simulator.listener.CameraMessageSubscriber;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Primary
 public class CameraMessageReceiverGeneratorImpl implements CameraMessageReceiver {
     private List<CameraMessageSubscriber> subscribers;
     private RandomValueGenerator randomValueGenerator;

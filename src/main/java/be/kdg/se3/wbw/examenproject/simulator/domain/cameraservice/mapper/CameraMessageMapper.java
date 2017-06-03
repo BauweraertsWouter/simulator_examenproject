@@ -15,4 +15,5 @@ public interface CameraMessageMapper {
      * @return a new CameraMessageDto
      */
     CameraMessageDto mapToDto(CameraMessage message);
+    CameraMessage csvToCameraMessage(String csv);
 }
