@@ -6,11 +6,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
-
-import static org.junit.Assert.*;
 
 public class CameraMessageConverterXmlImplTest {
     @Test
