@@ -21,10 +21,10 @@ import java.util.Arrays;
  */
 @Component
 public class CameraServiceGeneratorImpl implements CameraService {
-    private TimeCheckerService timeCheckerService;
-    private CameraMessageReceiver cameraMessageReceiver;
-    private CameraMessageMapper cameraMessageMapper;
-    private CameraMessageQueueService cameraMessageQueueService;
+    private final TimeCheckerService timeCheckerService;
+    private final CameraMessageReceiver cameraMessageReceiver;
+    private final CameraMessageMapper cameraMessageMapper;
+    private final CameraMessageQueueService cameraMessageQueueService;
 
     private int interval = 100;
 

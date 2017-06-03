@@ -20,22 +20,22 @@ public class CameraMessageDto {
 
     public String getLicensePlate() { return licensePlate; }
 
-    public static class CameraMessageBuilder {
+    public static class CameraMessageDtoBuilder {
         private Date timestamp = Date.from(Instant.now());
         private int cameraId = 0;
         private String licensePlate = "1-ABC-123";
 
-        public CameraMessageDto.CameraMessageBuilder withTimestamp(Date timestamp) {
+        public CameraMessageDtoBuilder withTimestamp(Date timestamp) {
             this.timestamp = timestamp;
             return this;
         }
 
-        public CameraMessageDto.CameraMessageBuilder withCameraId(int cameraId) {
+        public CameraMessageDtoBuilder withCameraId(int cameraId) {
             this.cameraId = cameraId;
             return this;
         }
 
-        public CameraMessageDto.CameraMessageBuilder withLicensePlate(String licensePlate) {
+        public CameraMessageDtoBuilder withLicensePlate(String licensePlate) {
             this.licensePlate = licensePlate;
             return this;
         }

@@ -8,6 +8,11 @@ import org.springframework.stereotype.Component;
 public class CameraMessageMapperImpl implements CameraMessageMapper {
     @Override
     public CameraMessageDto mapToDto(CameraMessage message) {
-        return null;
+        CameraMessageDto dto = new CameraMessageDto.CameraMessageDtoBuilder()
+                .withTimestamp(message.getTimestamp())
+                .withLicensePlate(message.getLicensePlate())
+                .withCameraId(message.getCameraId())
+                .build();
+        return dto;
     }
 }

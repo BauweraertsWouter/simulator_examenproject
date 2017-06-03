@@ -12,7 +12,7 @@ import java.util.List;
 
 @Component
 public class TimeCheckerServiceImpl implements TimeCheckerService {
-    private List<RushHour> rushHours = new ArrayList<>();
+    private final List<RushHour> rushHours = new ArrayList<>();
     private int rushHourInterval=1000;
     private int regularInterval=3000;
 
