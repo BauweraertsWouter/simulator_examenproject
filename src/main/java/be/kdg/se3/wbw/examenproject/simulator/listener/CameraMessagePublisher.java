@@ -14,7 +14,7 @@ public interface CameraMessagePublisher {
      * Use this method to add a new CameraMessageSubscriber to the collection of subscribers
      * @param subscriber CameraMessageSubscriber to add
      */
-    void addSubsriber(CameraMessageSubscriber subscriber);
+    void addSubscriber(CameraMessageSubscriber subscriber);
 
     /**
      * When this method is called, alle CameraMessageSubscribers subscribed to this instance will be notified
