@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Arrays;
 
 /**
@@ -37,6 +38,11 @@ public class CameraServiceGeneratorImpl implements CameraService {
         this.cameraMessageReceiver = cameraMessageReceiver;
         this.cameraMessageMapper = cameraMessageMapper;
         this.cameraMessageQueueService = cameraMessageQueueService;
+    }
+
+    @PostConstruct
+    private void subscribeToCameraMessageReceiver(){
+        cameraMessageReceiver.addSubscriber(this);
     }
 
     @Override
