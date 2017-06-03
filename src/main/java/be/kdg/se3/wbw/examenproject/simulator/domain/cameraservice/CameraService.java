@@ -1,6 +1,6 @@
 package be.kdg.se3.wbw.examenproject.simulator.domain.cameraservice;
 
-import be.kdg.se3.wbw.examenproject.simulator.listener.Subscriber;
+import be.kdg.se3.wbw.examenproject.simulator.listener.CameraMessageSubscriber;
 
 /**
  * @author Wouter Bauweraerts
@@ -8,7 +8,7 @@ import be.kdg.se3.wbw.examenproject.simulator.listener.Subscriber;
  * The CameraService interface is the base of the simulator application.
  * Two implementations will be provided for the different operation modes
  */
-public interface CameraService extends Subscriber {
+public interface CameraService extends CameraMessageSubscriber {
     /**
      * This method starts the CameraService. It will trigger the CameraMessageReceiver to start receiving messages.
      */
